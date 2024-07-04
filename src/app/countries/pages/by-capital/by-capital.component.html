@@ -1,0 +1,16 @@
+<div class="flex flex-col pl-16 pr-8">
+  <div class="pt-8 mb-10">
+    <shared-search-box
+      [sizeBox]="'max-w-md mx-auto'"
+      [placeholder]="'Busca tu capital'"
+      (onValue)="onValue($event)"
+    ></shared-search-box>
+  </div>
+  <hr />
+  <div>
+    <shared-list-results
+      [countriesI]="countries"
+      [title]="'capitales'"
+    ></shared-list-results>
+  </div>
+</div>

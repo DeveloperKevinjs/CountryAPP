@@ -1,0 +1,62 @@
+<div
+  *ngIf="countriesI.length === 0; else table"
+  class="p-4 my-4 text-sm text-center text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+  role="alert"
+>
+  <span class="font-medium">Goo goo!</span> Comienza tu busqueda de {{ title }}
+</div>
+<ng-template #table>
+  <h2 class="my-4 text-2xl font-semibold text-gray-900 dark:text-white">
+    Listado de {{ title }}:
+  </h2>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">#</th>
+          <th scope="col" class="px-6 py-3">Icono</th>
+          <th scope="col" class="px-6 py-3">Bandera</th>
+          <th scope="col" class="px-6 py-3">Nombre</th>
+          <th scope="col" class="px-6 py-3">Capital</th>
+          <th scope="col" class="px-6 py-3">Poblacion</th>
+          <th scope="col" class="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let value of countriesI; let i = index"
+          class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+        >
+          <th
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            {{ i + 1 }}
+          </th>
+          <td class="px-6 py-4">{{ value.flag }}</td>
+          <td class="px-6 py-4">
+            <img
+              class="w-6"
+              [src]="value.flags.svg"
+              [alt]="value.name.common"
+            />
+          </td>
+          <td class="px-6 py-4">{{ value.name.common }}</td>
+          <td class="px-6 py-4">{{ value.capital }}</td>
+          <td class="px-6 py-4">{{ value.population | number }}</td>
+          <td class="px-6 py-4">
+            <a
+              [routerLink]="['/countries/by', value.cca3]"
+              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              >ver mas</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

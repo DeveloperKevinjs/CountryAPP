@@ -1,0 +1,16 @@
+<div class="flex flex-col pl-16 pr-8">
+  <div class="pt-8 mb-10">
+    <shared-search-box
+      [sizeBox]="'max-w-md mx-auto'"
+      [placeholder]="'Busca paises por región'"
+      (onValue)="onValue($event)"
+    ></shared-search-box>
+  </div>
+  <hr />
+  <div>
+    <shared-list-results
+      [countriesI]="countrie"
+      [title]="'paises por región'"
+    ></shared-list-results>
+  </div>
+</div>
