@@ -3,6 +3,7 @@
     <shared-search-box
       [sizeBox]="'max-w-md mx-auto'"
       [placeholder]="'Busca tu capital'"
+      [nameSearchSave]="nameSearchSave"
       (onValue)="onValue($event)"
     ></shared-search-box>
   </div>
@@ -12,5 +13,12 @@
       [countriesI]="countries"
       [title]="'capitales'"
     ></shared-list-results>
+  </div>
+  <div
+    *ngIf="isLoading"
+    class="absolute inset-0 flex items-center justify-center h-screen z-0"
+  >
+    <div class="bg-white opacity-60 absolute inset-0"></div>
+    <shared-loader class="relative z-10"></shared-loader>
   </div>
 </div>
