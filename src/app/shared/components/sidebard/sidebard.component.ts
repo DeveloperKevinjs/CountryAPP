@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './sidebard.component.html',
   styleUrl: './sidebard.component.css',
 })
-export class SidebardComponent {}
+export class SidebardComponent {
+
+  public isOpen:boolean = false;
+
+  toggleSidebar(){
+    this.isOpen = !this.isOpen;
+  }
+}
